@@ -3,9 +3,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 // Note: Change v1 to v2 on rapid api
 
 const cryptoApiHeaders = { 
-  'x-access-token': 'coinranking08b1575e54ecb15fe36db7d4239f35aac12b908c99a12140'
+'X-BingApis-SDK': 'true',
+'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com',
+'X-RapidAPI-Key': '848bb5993bmsh2a22d4afd819925p1eb1cfjsn64c3fd8d5864'
 };
-const baseUrl = 'https://api.coinranking.com/v2/migration'; 
+const baseUrl = 'https://bing-news-search1.p.rapidapi.com'; 
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
 
 export const cryptoApi = createApi({
@@ -14,7 +16,7 @@ export const cryptoApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      query: () => createRequest(`/coins`),
+      query: () => createRequest(`/news`),
     }),
 
     getCryptoDetails: builder.query({
